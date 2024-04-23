@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENV | METODO DE BUSQUEDAS | Ejecución con Flask</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Color de fondo gris claro */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto; /* Centra el contenido horizontalmente y agrega espacio arriba y abajo */
+            padding: 20px;
+            background-color: #ffffff; /* Fondo blanco */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+        }
+
+        h1 {
+            color: #008000; /* Verde oscuro */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #008000; /* Verde oscuro */
+            color: #ffffff; /* Texto blanco */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #006400; /* Verde más oscuro al pasar el cursor */
+        }
+
+        p {
+            color: #333333; /* Texto gris oscuro */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>METODO DE BUSQUEDA</h1>
+       
+        
+        <button onclick="obtenerResultado()">DFS INTERACTIVO</button>
+        <button onclick="obtenerResultado2()">DFS RECURSIVO</button>
+        <button onclick="obtenerResultado3()">DIJSKTRA</button>
+        <button onclick="obtenerResultado4()">PUZZLE LINEAL BFS</button>
+        <button onclick="obtenerResultado5()">VUELOS BFS</button>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function obtenerResultado() {
+            fetch('/dfs-interactivo')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("resultado").textContent = data;
+                })
+                .catch(error =>{
+                    console.error('Error', error);
+                });
+        }
+        function obtenerResultado2() {
+            fetch('/dfs-recursivo')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("resultado").textContent = data;
+                })
+                .catch(error =>{
+                    console.error('Error', error);
+                });
+        }
+        function obtenerResultado3() {
+            fetch('/dijsktra')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("resultado").textContent = data;
+                })
+                .catch(error =>{
+                    console.error('Error', error);
+                });
+        }
+        function obtenerResultado4() {
+            fetch('/puzzle-lineal')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("resultado").textContent = data;
+                })
+                .catch(error =>{
+                    console.error('Error', error);
+                });
+        }
+        function obtenerResultado5() {
+            fetch('/vuelos-bfs')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("resultado").textContent = data;
+                })
+                .catch(error =>{
+                    console.error('Error', error);
+                });
+        }
+    </script>
+    
+</body>
+</html>
